@@ -1,0 +1,68 @@
+---
+const pages = [
+  { title: "Overview", url: "/" },
+  { title: "Skills", url: "/skills" },
+  { title: "Career", url: "/career" },
+  { title: "Learn", url: "/learn" },
+];
+
+const { pathname } = Astro.url;
+---
+
+<nav class="navbar">
+  {
+    pages.map((page) => (
+      <a
+        class="navbar__item"
+        aria-current={pathname === page.url}
+        href={page.url}
+      >
+        {page.title}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .navbar {
+    display: flex;
+  }
+
+  .navbar__item {
+    margin: 1rem;
+    padding: 0.25rem;
+    position: relative;
+    border-radius: 0.25rem;
+    text-decoration: none;
+  }
+
+  .navbar__item::before {
+    content: "";
+    height: 100%;
+    left: 50%;
+    min-height: 48px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  .navbar__item[aria-current="true"]::after {
+    background: var(--color-primary);
+    border-radius: 6px;
+    bottom: calc(50% - 25px);
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 100%;
+  }
+
+  @media (pointer: fine) {
+    .navbar__item:hover {
+      background-color: var(--color-dark);
+      transition: background 0.2s ease-in-out;
+    }
+  }
+</style>

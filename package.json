@@ -1,0 +1,21 @@
+{
+  "name": "sasnovacat08",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.0.14",
+    "astro-icon": "^0.8.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint": "^8.34.0",
+    "eslint-plugin-astro": "^0.23.0"
+  }
+}

@@ -1,0 +1,43 @@
+---
+import IconBadge from "./IconBadge.astro";
+
+interface Props {
+  title: string;
+  content: any;
+}
+
+const { title, content } = Astro.props;
+---
+
+<section class="skills-list">
+  <h3 class="skills-list__title">{title}</h3>
+  <article class="skills-list__content">
+    {
+      content.map((item: any) => (
+        <IconBadge type={item.type} icon={item.icon} />
+      ))
+    }
+  </article>
+</section>
+
+<style>
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skills-list__title {
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .skills-list__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

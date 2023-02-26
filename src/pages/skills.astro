@@ -1,0 +1,83 @@
+---
+import { BadgeType } from "../components/Badge.astro";
+import SkillsList from "../components/SkillsList.astro";
+import Default from "../layouts/Default.astro";
+
+const skills = [
+  {
+    title: "Stacks",
+    content: [
+      {
+        icon: "vscode-icons:file-type-typescript-official",
+      },
+      {
+        icon: "vscode-icons:file-type-python",
+      },
+      {
+        icon: "vscode-icons:file-type-go",
+      },
+      {
+        icon: "vscode-icons:file-type-rust",
+      },
+    ],
+  },
+  {
+    title: "Front",
+    content: [
+      {
+        icon: "vscode-icons:file-type-nuxt",
+      },
+      {
+        icon: "vscode-icons:file-type-next",
+      },
+      {
+        icon: "vscode-icons:file-type-astro",
+      },
+      {
+        icon: "vscode-icons:file-type-svelte",
+      },
+    ],
+  },
+  {
+    title: "Back",
+    content: [
+      {
+        icon: "vscode-icons:file-type-pgsql",
+      },
+      {
+        icon: "logos:aws-dynamodb",
+      },
+    ],
+  },
+  {
+    title: "Devops",
+    content: [
+      {
+        icon: "simple-icons:githubactions",
+      },
+      {
+        icon: "vscode-icons:file-type-terraform",
+      },
+      {
+        icon: "logos:aws",
+      },
+      {
+        icon: "vscode-icons:file-type-azure",
+        type: BadgeType.SOON,
+      },
+      {
+        icon: "logos:google-cloud",
+        type: BadgeType.SOON,
+      },
+    ],
+  },
+];
+---
+
+<Default title="oui">
+  {
+    skills.map((skill) => (
+      <SkillsList title={skill.title} content={skill.content} />
+    ))
+  }
+</Default>

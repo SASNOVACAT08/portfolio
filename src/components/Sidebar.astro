@@ -1,0 +1,81 @@
+---
+import Avatar from "./Avatar.astro";
+import Icon from "astro-icon";
+---
+
+<section class="sidebar">
+  <Avatar
+    src="https://avatars.githubusercontent.com/u/46852305?v=4"
+    alt="My avatar"
+  />
+  <hr />
+  <article class="sidebar__element">
+    <h1 class="sidebar__title">Ruben Barros</h1>
+    <h2 class="siderbar__description">Developer</h2>
+  </article>
+  <hr />
+  <article class="sidebar__element">
+    <h2 class="sidebar__subtitle">Contact</h2>
+    <div class="sidebar__content">
+      <Icon class="sidebar__icon" name="carbon:logo-github" />
+      <a class="sidebar__link" href="#">SASNOVACAT08</a>
+    </div>
+    <div class="sidebar__content">
+      <Icon class="sidebar__icon" name="carbon:logo-linkedin" />
+      <a class="sidebar__link" href="#">Ruben Barros</a>
+    </div>
+    <div class="sidebar__content">
+      <Icon class="sidebar__icon" name="carbon:email" />
+      <a class="sidebar__link" href="mailto:ruben.barr08@gmail.com">
+        ruben.barr08@gmail.com
+      </a>
+    </div>
+  </article>
+</section>
+
+<style>
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .sidebar__element {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sidebar__title {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  .siderbar__description {
+    font-size: 1.5rem;
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  .sidebar__subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar__icon {
+    width: 1.5rem;
+  }
+
+  .sidebar__content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sidebar__link {
+    flex: 1;
+    text-decoration: none;
+  }
+</style>

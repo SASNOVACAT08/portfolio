@@ -1,0 +1,51 @@
+---
+import Default from "../layouts/Default.astro";
+---
+
+<Default title="oui">
+  <section class="career">
+    <h2 class="career__title">Tastycloud - Developer Fullstack</h2>
+    <h3 class="career__date">Feb 2021 - Aug 2023</h3>
+    <p class="career__content">Content</p>
+  </section>
+
+  <section class="career">
+    <h2 class="career__title">IIM - Institut de l'Internet et du Multimédia</h2>
+    <h3 class="career__date">Sept 2019 - June 2023</h3>
+    <p class="career__content">Content</p>
+  </section>
+</Default>
+
+<style>
+  .career {
+    /* text-align: center; */
+    position: relative;
+  }
+
+  .career::before {
+    content: "";
+    position: absolute;
+    left: -2rem;
+    height: 100%;
+    border-left: 0.25rem solid var(--color-primary);
+    border-radius: 6px;
+  }
+
+  .career__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .career__date {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .career__content {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+</style>

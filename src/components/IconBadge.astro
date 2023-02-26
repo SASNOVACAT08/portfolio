@@ -1,0 +1,38 @@
+---
+import { Icon } from "astro-icon";
+import Badge, { BadgeType } from "./Badge.astro";
+
+export { BadgeType };
+
+interface Props {
+  icon: string;
+  type?: BadgeType;
+}
+
+const { icon, type } = Astro.props;
+---
+
+<section class="icon-badge">
+  <Icon name={icon} />
+  {
+    type && (
+      <article class="icon-badge__badge">
+        <Badge type={type} />
+      </article>
+    )
+  }
+</section>
+
+<style>
+  .icon-badge {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .icon-badge__badge {
+    position: absolute;
+    top: -0.25rem;
+    right: -1rem;
+  }
+</style>

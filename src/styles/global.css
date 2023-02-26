@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --color-light: #F5F5F5;
+  --color-primary: #E69FBAFF;
+  --color-dark: #464545;
+  --color-background: #1c1c1c;
+}
+
+a, p, h1, h2, h3, h4, h5, h6, li, span, button, input, textarea, svg, div {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: var(--color-light);
+}
+
+body {
+  background-color: var(--color-background);
+}
+

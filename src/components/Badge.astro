@@ -1,0 +1,55 @@
+---
+interface Props {
+  type: BadgeType;
+}
+
+export enum BadgeType {
+  WIP = "wip",
+  SOON = "soon",
+}
+
+const { type } = Astro.props;
+
+function getBadgeTypeFromProps() {
+  switch (type) {
+    case BadgeType.WIP:
+      return "wip";
+    case BadgeType.SOON:
+      return "soon";
+  }
+}
+---
+
+<span
+  class:list={[
+    "badge",
+    {
+      "badge--wip": type === BadgeType.WIP,
+      "badge--soon": type === BadgeType.SOON,
+    },
+  ]}
+>
+  {getBadgeTypeFromProps()}
+</span>
+
+<style>
+  .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .badge--wip {
+    color: var(--color-dark);
+    background-color: #ffcf00;
+  }
+
+  .badge--soon {
+    color: var(--color-dark);
+    background-color: #b1afff;
+  }
+</style>

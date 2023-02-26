@@ -7,16 +7,17 @@ const pages = [
 ];
 
 const { pathname } = Astro.url;
+
+const path =
+  pathname.endsWith("/") && pathname.length > 1
+    ? pathname.slice(0, -1)
+    : pathname;
 ---
 
 <nav class="navbar">
   {
     pages.map((page) => (
-      <a
-        class="navbar__item"
-        aria-current={pathname === page.url}
-        href={page.url}
-      >
+      <a class="navbar__item" aria-current={path === page.url} href={page.url}>
         {page.title}
       </a>
     ))

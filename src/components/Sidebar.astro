@@ -1,36 +1,36 @@
 ---
 import Avatar from "./Avatar.astro";
 import Icon from "astro-icon";
+import template from "../template";
+
+const { sidebar } = template;
 ---
 
 <section class="sidebar">
-  <Avatar
-    src="https://avatars.githubusercontent.com/u/46852305?v=4"
-    alt="My avatar"
-  />
+  <Avatar src={sidebar.avatar.src} alt={sidebar.avatar.alt} />
   <hr />
   <article class="sidebar__element">
-    <h1 class="sidebar__title">Ruben Barros</h1>
-    <h2 class="siderbar__description">Developer</h2>
+    <h1 class="sidebar__title">{sidebar.name}</h1>
+    <h2 class="siderbar__description">{sidebar.description}</h2>
   </article>
-  <hr />
-  <article class="sidebar__element">
-    <h2 class="sidebar__subtitle">Contact</h2>
-    <div class="sidebar__content">
-      <Icon class="sidebar__icon" name="carbon:logo-github" />
-      <a class="sidebar__link" href="#">SASNOVACAT08</a>
-    </div>
-    <div class="sidebar__content">
-      <Icon class="sidebar__icon" name="carbon:logo-linkedin" />
-      <a class="sidebar__link" href="#">Ruben Barros</a>
-    </div>
-    <div class="sidebar__content">
-      <Icon class="sidebar__icon" name="carbon:email" />
-      <a class="sidebar__link" href="mailto:ruben.barr08@gmail.com">
-        ruben.barr08@gmail.com
-      </a>
-    </div>
-  </article>
+  {
+    sidebar.contacts.length > 0 && (
+      <>
+        <hr />
+        <article class="sidebar__element">
+          <h2 class="sidebar__subtitle">Contact</h2>
+          {sidebar.contacts.map((contact) => (
+            <div class="sidebar__content">
+              <Icon class="sidebar__icon" name={contact.icon} />
+              <a class="sidebar__link" href={contact.link}>
+                {contact.text}
+              </a>
+            </div>
+          ))}
+        </article>
+      </>
+    )
+  }
 </section>
 
 <style>
@@ -39,6 +39,7 @@ import Icon from "astro-icon";
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+    min-width: 13rem;
   }
 
   .sidebar__element {

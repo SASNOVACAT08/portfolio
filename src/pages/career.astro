@@ -1,19 +1,20 @@
 ---
 import Default from "../layouts/Default.astro";
+import template from "../template";
+
+const { career } = template;
 ---
 
-<Default title="oui">
-  <section class="career">
-    <h2 class="career__title">Tastycloud - Developer Fullstack</h2>
-    <h3 class="career__date">Feb 2021 - Aug 2023</h3>
-    <p class="career__content">Content</p>
-  </section>
-
-  <section class="career">
-    <h2 class="career__title">IIM - Institut de l'Internet et du Multimédia</h2>
-    <h3 class="career__date">Sept 2019 - June 2023</h3>
-    <p class="career__content">Content</p>
-  </section>
+<Default title={career.title}>
+  {
+    career.content.map((career) => (
+      <section class="career">
+        <h2 class="career__title">{career.title}</h2>
+        <h3 class="career__description">{career.description}</h3>
+        <p class="career__content">{career.content}</p>
+      </section>
+    ))
+  }
 </Default>
 
 <style>
@@ -37,7 +38,7 @@ import Default from "../layouts/Default.astro";
     margin-bottom: 0.5rem;
   }
 
-  .career__date {
+  .career__description {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 1rem;

@@ -1,9 +1,13 @@
 ---
+import template from "../template";
+
+const { index, skills, career, learn } = template;
+
 const pages = [
-  { title: "Overview", url: "/" },
-  { title: "Skills", url: "/skills" },
-  { title: "Career", url: "/career" },
-  { title: "Learn", url: "/learn" },
+  { title: index.navbar, url: "/" },
+  { title: skills.navbar, url: "/skills" },
+  { title: career.navbar, url: "/career" },
+  { title: learn.navbar, url: "/learn" },
 ];
 
 const { pathname } = Astro.url;

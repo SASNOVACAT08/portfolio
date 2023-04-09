@@ -1,9 +1,27 @@
 ---
 import Default from "../layouts/Default.astro";
+import template from "../template";
+
+const { index } = template;
 ---
 
-<Default title="Welcome to Astro.">
-  <main></main>
+<Default title={index.title}>
+  <main class="index">
+    <p class="index--text">{index.content}</p>
+  </main>
 </Default>
 
-<style></style>
+<style>
+  .index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .index--text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: justify;
+    line-height: 1.75rem;
+  }
+</style>

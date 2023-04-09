@@ -1,8 +1,11 @@
 ---
 import Default from "../layouts/Default.astro";
+import template from "../template";
+
+const { learn } = template;
 ---
 
-<Default title="oui">
+<Default title={learn.title}>
   <section>
     <p>Coming soon...</p>
   </section>

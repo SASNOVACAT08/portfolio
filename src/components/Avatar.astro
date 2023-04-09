@@ -1,8 +1,7 @@
 ---
-interface Props {
-  src: string;
-  alt: string;
-}
+import type { Avatar } from "../interfaces/components";
+
+interface Props extends Avatar {}
 
 const { src, alt } = Astro.props;
 ---

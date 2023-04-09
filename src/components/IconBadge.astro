@@ -1,13 +1,9 @@
 ---
 import { Icon } from "astro-icon";
-import Badge, { BadgeType } from "./Badge.astro";
+import Badge from "./Badge.astro";
+import type { IconBadge } from "../interfaces/components";
 
-export { BadgeType };
-
-interface Props {
-  icon: string;
-  type?: BadgeType;
-}
+interface Props extends IconBadge {}
 
 const { icon, type } = Astro.props;
 ---
